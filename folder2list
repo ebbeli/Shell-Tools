@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# List file ames that start with number
+if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then
+    echo "folder2list:"
+	echo "Script goes through directory and folders in it."
+    echo "It makes playlist for each folder containing .cue, .ccd & .chd, using those files."
+else
+    # Go trough all files
+    for file in * ; do
+        #If file is folder
+        if [[ -d $file ]]; then
+        # Go to folder
+        echo "$file"
+        cd "$file" 
+            # Make playlist using folder name
+            listName="$file.m3u"
+            > "$listName"
+            echo "Creating list: $listName"
+            # use folder as path
+            fPath="/$file/"
+            echo "Folder path: $fPath"
+            # Append cue, ccd & chd to playlist
+            for fName in *.{cue,ccd,chd} ; do
+                # If file exist append to playlist
+                if [[ -f $fName ]]; then
+                    echo "$fPath$fName" >> "$listName"
+                fi
+            done
+            # Move playlist to upper directory and go there
+            mv "$listName" ..
+            cd ..
+        fi
+    done
+fi

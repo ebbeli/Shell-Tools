@@ -3,11 +3,11 @@ Repository for miscellaneous more or less usefu shell scripts made by me.
 
 ## cleanNUMs
 This script clean numbers from the beginning of filenames in folder it's been use.
-It only cleans numbers if there is on or multiple spaces after them. It also deletes the spaces at the same time.
+It only cleans numbers if there is one or multiple spaces after them. It also deletes the unnecessary spaces.
 
 Use "bash cleanNUMs -h" to get help if needed.
 
-Use "bash cleanNUMs -s" to save script's output to "filenames.txt" in the used folder.
+Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is created in the used folder.
 
 ### EXTRA / USE AS COMMAND
 

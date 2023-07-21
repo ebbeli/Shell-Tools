@@ -34,9 +34,11 @@ If you want to use this as basic command tool wihout using it from directory.
    - `mv * /home/bin/`
 3. Add this PATG to your .profile or .bash_profile
    - `sudo echo 'export PATH=$PATH":$HOME/bin"' >> /home/user/.profile`
-4. Reload .profile
+4. Sometimes you have to make the file executable again with this command.
+   - `chmod +x scriptName`
+5. Reload .profile
    - `~/.bash_profile`
-5. Now you can use it at command line with(Remember case sensitivity):
+6. Now you can use it anywhere with command line with(Remember case sensitivity):
    - `cleanNUMs -h`
 
 Ps. After doing that you can add your own scripts into folder to use as commands. It's convient so you can easily separate them from installed ones.

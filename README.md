@@ -6,8 +6,9 @@ You can find these scripts especially useful with Anbernic's handheld consoles. 
 
 ## cleanNUMs
 
-This script clean numbers from the beginning of filenames in folder it's been use.
+This script cleans numbers at the start of filenames.
 It only cleans numbers if there is one or multiple spaces after them. It also deletes the unnecessary spaces.
+Run script in folder containing files that need cleaning.
 
 Use "bash cleanNUMs -h" to get help if needed.
 
@@ -18,6 +19,7 @@ Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is crea
 Script goes through directory and folders in it.
 It makes playlist for each folder's .cue, .ccd & .chd -files.
 Each folder gets its own playlist.
+Run script in directory containing folders that need playlists.
 
 Use "bash folder2list -h" to get help if needed.
 

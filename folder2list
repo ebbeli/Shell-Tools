@@ -20,7 +20,6 @@ else
             echo "Creating list: $listName"
             # use folder as path
             fPath="/$file/"
-            echo "Folder path: $fPath"
             # Append cue, ccd & chd to playlist
             for fName in *.{cue,ccd,chd} ; do
                 # If file exist append to playlist

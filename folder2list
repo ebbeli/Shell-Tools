@@ -5,6 +5,7 @@ if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then
     echo "folder2list:"
 	echo "Script goes through directory and folders in it."
     echo "It makes playlist for each folder containing .cue, .ccd & .chd, using those files."
+    echo "Each folder gets its own playlist."
 else
     # Go trough all files
     for file in * ; do

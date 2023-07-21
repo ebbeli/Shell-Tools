@@ -14,13 +14,10 @@ else
             #Don't process null matches
             shopt -s nullglob
             # create an array of matching files with different types
-            files=("$file2compare."*)
-            echo "$files"         
+            files=("$file2compare."*) 
             # Check array is not empty
-            echo "${#files[@]}"
             if ((${#files[@]} == 1)); then  
                 echo "$file2compare has no matching files"
-                exit 1
             else
                 echo "Making folder: $file2compare and moving files.."
                 mkdir "$file2compare"

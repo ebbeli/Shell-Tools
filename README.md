@@ -16,7 +16,7 @@ Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is crea
 ## folder2list
 
 Script goes through directory and folders in it.
-It makes playlist for each folder's .cue, .ccd & .chd using files
+It makes playlist for each folder's .cue, .ccd & .chd -files.
 Each folder gets its own playlist.
 
 Use "bash folder2list -h" to get help if needed.

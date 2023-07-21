@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# List file ames that start with number
+if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then
+    echo "files2folder: Goes through folder and checks if there is multiple file types with same name"
+    echo " If found, creates folder using that name and moves matching files into it."
+else
+    # Go trough all files
+    for file in * ; do
+        #If file is not folder
+        if [[ -f $file ]]; then
+            #Strip type extension out
+            file2compare="${file%%.*}"
+            #Don't process null matches
+            shopt -s nullglob
+            # create an array of matching files with different types
+            files=("$file2compare."*)
+            echo "$files"         
+            # Check array is not empty
+            echo "${#files[@]}"
+            if ((${#files[@]} == 1)); then  
+                echo "$file2compare has no matching files"
+                exit 1
+            else
+                echo "Making folder: $file2compare and moving files.."
+                mkdir "$file2compare"
+                # Move matching files to folder named after them
+                for ((i = 0; i < ${#files[@]}; i++))
+                do
+                    mv "${files[$i]}" "$file2compare";
+                done
+            fi
+        fi
+    done
+fi

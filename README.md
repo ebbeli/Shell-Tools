@@ -1,16 +1,15 @@
 # Shell Tools
 
 Repository for miscellaneous more or less usefu shell scripts made by me.
+You can find these scripts especially useful with Anbernic's handheld consoles. I use them with my RG35xx.
+To use any of the scripts run it in directory containing files/folders for processing.
 
-You can find these scripts especially useful with Anbernic's handheld consoles. I use them with RG35xx.
+Use "bash scriptName -h / -help" for info if needed.
 
 ## cleanNUMs
 
 This script cleans numbers at the start of filenames.
 It only cleans numbers if there is one or multiple spaces after them. It also deletes the unnecessary spaces.
-Run script in folder containing files that need cleaning.
-
-Use "bash cleanNUMs -h" to get help if needed.
 
 Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is created in the used folder.
 
@@ -19,9 +18,11 @@ Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is crea
 Script goes through directory and folders in it.
 It makes playlist for each folder's .cue, .ccd & .chd -files.
 Each folder gets its own playlist.
-Run script in directory containing folders that need playlists.
 
-Use "bash folder2list -h" to get help if needed.
+## files2folder
+
+Script goes through folder and checks if there is multiple file types with same name"
+If found, creates folder using that name and moves matching files into it."
 
 ### EXTRA / USE AS COMMAND
 

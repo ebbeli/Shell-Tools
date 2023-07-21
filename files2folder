@@ -3,7 +3,7 @@
 # List file ames that start with number
 if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then
     echo "files2folder: Goes through folder and checks if there is multiple file types with same name"
-    echo " If found, creates folder using that name and moves matching files into it."
+    echo "If found, creates folder using that name and moves matching files into it."
 else
     # Go trough all files
     for file in * ; do

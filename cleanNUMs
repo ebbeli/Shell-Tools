@@ -1,0 +1,34 @@
+#! /bin/bash
+
+# List file ames that start with number
+if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then
+	echo "Script cleans numbers from beginning of filename."
+	echo "Use -s / -save to to save filenames into textfile."
+	echo "Then data is saved to filenames.txt in folder it's been used."
+	echo " It's formated like this:"
+	echo "< Old Name"
+	echo "> New Name"
+else
+	#Use /dev/null to discard data if not saved to file
+	saveLocation="/dev/null"
+	if [[ $1 = "-s" ]] || [[ $1 = "-S" ]] || [[ $1 = "-save" ]]; then
+		# Create new textfile for filenames if -s is used
+		saveLocation="filanames.txt"
+		> $saveLocation
+	fi
+	
+	for fName in [0-9]* ; do
+   	 # Only process files that start with number and have space after.
+	    if [[ $fName =~ ^[0-9]+[[:blank:]]+(.+) ]] ; then
+		# Use regex before to clean file name
+		newname="${BASH_REMATCH[1]}"
+		# Print changed names:
+		echo "< $fName"
+		echo "> $newname"
+		# Append to textfile or /dev/null
+		echo "< $fName" >> $saveLocation
+		echo "> $newname" >> $saveLocation
+		mv "$fName" "$newname"
+	    fi
+	done
+fi

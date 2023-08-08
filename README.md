@@ -13,6 +13,15 @@ It only cleans numbers if there is one or multiple spaces after them. It also de
 
 Use "bash cleanNUMs -s" to save script's output to "filenames.txt" which is created in the used folder.
 
+## cleanNames
+
+Script for cleaning filenames. Run in folder which has target files in it
+- -n / -nums to clean numbers at the start of file name.
+- -u / -underscore to replace underscores with spaces
+- -p8 / -pico to erase .p8-extension from filename.
+- -s / -save as second attribute to to save old & new filenames into textfile.
+`cleanFiles -p8 -save`
+
 ## folder2list
 
 Script goes through directory and folders in it.

@@ -1,0 +1,2 @@
+#!/bin/bash
+for f in *; do mv "$f" "${f//.p8./.}"; done 

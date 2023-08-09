@@ -1,4 +1,4 @@
-#!/bin/bash
+3#!/bin/bash
 
 # List file ames that start with number
 if [[ $1 = "-h" ]] || [[ $1 = "-help" ]]; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List file ames that start with number
-if [[ $1 = "" ]] || [[ $1 = "-help" ]] || [[ $1 = "-h" ]|| [[ $1 = "-s" ]]]|| [[ $1 = "-save" ]]; then
+if [[ $1 = "" ]] || [[ $1 = "-help" ]] || [[ $1 = "-h" ]] || [[ $1 = "-s" ]] || [[ $1 = "-save" ]]; then
 	echo "Script for cleaning filenames. Run in folder which has target files in it"
 	echo "-n / -nums to clean numbers at the start of file name."
 	echo "-u / -underscore to replace underscores with spaces"
@@ -18,27 +18,45 @@ else
 	if [[ $2 = "-s" ]] || [[ $2 = "-S" ]] || [[ $2 = "-save" ]]; then
 		# Create new textfile for filenames if -s is used
 		saveLocation="filanames.txt"
-		> $saveLocation
+		if ! [[ -d ./ $saveLocation ]]; then
+			> $saveLocation
+			echo "test"
+		fi
 	fi
 	
-	for fName in [0-9]* ; do
+	for fName in * ; do
    	 # Only process files that start with number and have space after.
+		newname=$fName
 	 	if [[ $1 = "-n" ]] || [[ $1 = "-nums" ]]; then
 			if [[ $fName =~ ^[0-9]+[[:blank:]]+(.+) ]] ; then
-			# Use regex before to clean file name
-			newname="${BASH_REMATCH[1]}"
+				# Use regex before to clean file name
+				newname="${BASH_REMATCH[1]}"
+			elif [[ $fName =~ ^[0-9.]+[[:blank:]]+(.+) ]] ; then
+				# Use regex before to clean file name
+				newname="${BASH_REMATCH[1]}"
+			elif [[ $fName =~ ^[0-9.]+(.+) ]] ; then
+				# Use regex before to clean file name
+				newname="${BASH_REMATCH[1]}"
+			elif [[ $fName =~ ^[0-9]+(.+) ]] ; then
+				# Use regex before to clean file name
+				newname="${BASH_REMATCH[1]}"
+			fi
 		elif [[ $1 = "-p8" ]] || [[ $1 = "-pico" ]]; then
 			newname="${fName//.p8./.}"
 		elif [[ $1 = "-u" ]] || [[ $1 = "-underscore" ]]; then
 			newname="${fName//_/ }"
 		fi
-		# Print changed names:
-		echo "< $fName"
-		echo "> $newname"
-		# Append to textfile or /dev/null
-		echo "< $fName" >> $saveLocation
-		echo "> $newname" >> $saveLocation
-		mv "$fName" "$newname"
-	    fi
+
+		if [[ "$fName" = "$newname" ]]; then
+			echo "# $fName"
+		else
+			# Print changed names:
+			echo "< $fName"
+			echo "> $newname"
+			# Append to textfile or /dev/null
+			echo "< $fName" >> $saveLocation
+			echo "> $newname" >> $saveLocation
+			mv "$fName" ./"$newname"
+		fi
 	done
 fi

@@ -18,7 +18,7 @@ else
 	if [[ $2 = "-s" ]] || [[ $2 = "-S" ]] || [[ $2 = "-save" ]]; then
 		# Create new textfile for filenames if -s is used
 		saveLocation="filanames.txt"
-		if ! [[ -d ./ $saveLocation ]]; then
+		if ! [[ -d ./$saveLocation ]]; then
 			> $saveLocation
 			echo "test"
 		fi

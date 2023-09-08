@@ -20,7 +20,7 @@ else
             # use folder as path
             fPath="/$file/"
             # Append cue, ccd & chd to playlist
-            for fName in *.{cue,ccd,chd,mdf} ; do
+            for fName in *.{sub,bin,cue,ccd,chd,mdf} ; do
                 # If file exist append to playlist
                 if [[ -f $fName ]]; then
                     echo "$fPath$fName" >> "$listName"

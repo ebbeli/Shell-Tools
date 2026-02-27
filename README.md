@@ -43,11 +43,11 @@ If you want to use this as basic command tool wihout using it from directory.
    - `mv * /home/bin/`
 3. Add this PATH to your .profile or .bash_profile
    - `sudo echo 'export PATH=$PATH":$HOME/bin"' >> /home/user/.profile`
-4. Sometimes you have to make the file executable again with this command.
+4. On some systems, you have to change file permissions with this command.
    - `chmod +x scriptName`
 5. Reload .profile
    - `~/.bash_profile`
 6. Now you can use it anywhere with command line with(Remember case sensitivity):
    - `cleanNUMs -h`
 
-Ps. After doing that you can add your own scripts into folder to use as commands. It's convient so you can easily separate them from installed ones.
+Bonus tip: After doing that you can add your own scripts into folder to use as custom commands.

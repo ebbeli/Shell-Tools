@@ -4,7 +4,7 @@ Repository for miscellaneous more or less usefu shell scripts made by me.
 You can find these scripts especially useful with Anbernic's handheld consoles. I use them with my RG35xx.
 To use any of the scripts run it in directory containing files/folders for processing.
 
-Use "bash scriptName -h / -help" for info if needed.
+Use "bash scriptName -help" for info if needed.
 
 ## cleanNUMs
 
